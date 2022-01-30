@@ -28,7 +28,7 @@ conda activate taskgrasp
 2) Make a workspace, clone the repo
 ```shell
 mkdir ~/taskgrasp_ws && cd ~/taskgrasp_ws
-git clone https://github.com/adithyamurali/TaskGrasp.git
+git clone https://github.com/atharv2299/TaskGrasp.git
 ```
 3) Install dependencies
 ```shell
