@@ -20,34 +20,33 @@ The code has been tested on **Ubuntu 16.04** and with **CUDA 10.0**.
 
 ## Installation
 
-1) Create a virtual env or conda environment with python3
-```shell
-conda create --name taskgrasp python=3.6
-conda activate taskgrasp
-```
-2) Make a workspace, clone the repo
-```shell
-mkdir ~/taskgrasp_ws && cd ~/taskgrasp_ws
-git clone https://github.com/atharv2299/TaskGrasp.git
-```
-3) Install dependencies
-```shell
-cd TaskGrasp
-conda install pytorch=1.4.0 torchvision cudatoolkit=10.0 -c pytorch
-pip install -r requirements.txt
-```
-4) Compile and install [PointNet ops](https://github.com/erikwijmans/Pointnet2_PyTorch)
-```shell
-cd ~/taskgrasp_ws
-git clone https://github.com/erikwijmans/Pointnet2_PyTorch.git
-cd Pointnet2_PyTorch
-pip install -r requirements.txt
-pip install -e .
-```
-5) Install [Pytorch Geometric](https://github.com/rusty1s/pytorch_geometric) (only tested on v1.5.0)
-```shell
-pip install torch-scatter==latest+cu100 -f https://pytorch-geometric.com/whl/torch-1.4.0.html && pip install torch-sparse==latest+cu100 -f https://pytorch-geometric.com/whl/torch-1.4.0.html && pip install torch-cluster==latest+cu100 -f https://pytorch-geometric.com/whl/torch-1.4.0.html && pip install torch-spline-conv==latest+cu100 -f https://pytorch-geometric.com/whl/torch-1.4.0.html && pip install torch-geometric==1.5.0
-```
+1. Clone this repo:
+	```bash
+	mkdir ${HOME}/taskgrasp_ws && cd ${HOME}/taskgrasp_ws
+	git clone https://github.com/atharv2299/TaskGrasp.git
+	```
+
+2. Install PyTorch and related libraries for your version of CUDA. For example, for 11.3:
+	```bash
+	python3 -m pip install torch==1.10.2+cu113 torchvision==0.11.3+cu113 torchaudio==0.10.2+cu113 \
+		-f https://download.pytorch.org/whl/cu113/torch_stable.html
+	python3 -m pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric==1.5.0 \
+		-f https://pytorch-geometric.com/whl/torch-1.10.0%2Bcu113.html
+	```
+
+3. Install other dependencies:
+	```bash
+	cd TaskGrasp
+	python3 -m pip install -r requirements.txt
+	```
+
+4. Compile and install [PointNet ops](https://github.com/erikwijmans/Pointnet2_PyTorch)
+	```bash
+	cd ../
+	git clone https://github.com/erikwijmans/Pointnet2_PyTorch.git
+	cd Pointnet2_PyTorch
+	CUDA_HOME=/usr/local/cuda python3 -m pip install -r requirements.txt
+	```
 
 ## Dataset
 The dataset (5 GB) could be downloaded [here](https://drive.google.com/file/d/1aZ0k43fBIZZQPPPraV-z6itpqCHuDiUU/view?usp=sharing) and place it in the `data` folder as shown below:

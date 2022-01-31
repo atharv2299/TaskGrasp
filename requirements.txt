@@ -1,5 +1,5 @@
 yacs
-open3d==0.9
+open3d
 trimesh
 matplotlib
 nltk
@@ -7,4 +7,4 @@ ordered-set
 xlrd
 pygraphviz
 gensim
-pytorch-lightning==0.7.1
+pytorch-lightning
